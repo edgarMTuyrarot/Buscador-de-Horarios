@@ -5,3 +5,6 @@ Herramienta diseñada para tomar datos de una sheet de google y replicar los hor
 Desarrollada con google app script y javascript
 
 permite agregar multiples sheets dependiendo del mes.
+
+
+La solucion esta acualmente en produccion y tiene una tasa de 100 consultas diarias.
