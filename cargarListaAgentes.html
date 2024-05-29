@@ -1,0 +1,32 @@
+<script>
+    //Declaracion de variables
+    var listaAgentesList = document.getElementById("listaAgentes");
+    var lista=[]
+    //Llamada al servidor para ejecutar funcion queryAgentes
+    google.script.run.withSuccessHandler(nombreAgente =>{
+      //Se agrega elemento por elemento de la respuesta del servidor
+      nombreAgente.forEach(nombre=>{
+        lista.push(nombre[0])
+      })
+  
+      lista.forEach(function(nombre){
+        option = document.createElement("option");
+        option.value = nombre;  
+        listaAgentes.append(option);
+        
+      })
+      modalCargando.hide()
+      
+    }).queryAgentes()
+  
+    var fechas = ["lun 01-ene","mar 02-ene","mié 03-ene","jue 04-ene","vie 05-ene","sáb 06-ene","dom 07-ene","lun 08-ene","mar 09-ene","mié 10-ene","jue 11-ene","vie 12-ene","sáb 13-ene","dom 14-ene","lun 15-ene","mar 16-ene","mié 17-ene","jue 18-ene","vie 19-ene","sáb 20-ene","dom 21-ene","lun 22-ene","mar 23-ene","mié 24-ene","jue 25-ene","vie 26-ene","sáb 27-ene","dom 28-ene","lun 29-ene","mar 30-ene","mié 31-ene"]
+  
+    fechas.forEach(fecha=>{
+        let option = document.createElement("option");
+        option.value = fecha;
+        option.text = fecha;
+        fechaLista.appendChild(option);
+    })
+  
+  
+  </script>

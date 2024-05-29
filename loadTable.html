@@ -1,0 +1,57 @@
+<script>
+    let tablaActiva = 0
+  
+      function loadTable(datos){
+        let tablaBody = document.getElementById('horariosBody')
+        tablaBody.innerHTML = ""
+        datos.forEach(dato=>{
+          let tr = document.createElement('tr')
+          let tdAgente = document.createElement('td')
+          let tdSup =  document.createElement('td')
+          let tdScore =  document.createElement('td')
+          let tdHIn = document.createElement('td')
+          let tdHOut = document.createElement('td')
+  
+          tdAgente.innerHTML = `${dato.nombre}`
+          tdSup.innerHTML = `${dato.sup}`
+          tdHIn.innerHTML = `${dato.horarioIn}`
+          tdHOut.innerHTML = `${dato.horarioOut}`
+          tdScore.innerHTML = `${dato.score}`
+  
+          tr.appendChild(tdAgente)
+          tr.appendChild(tdSup)
+          tr.appendChild(tdScore)
+          tr.appendChild(tdHIn)
+          tr.appendChild(tdHOut)
+  
+          tablaBody.appendChild(tr)
+          
+        
+        })
+  
+      if(tablaActiva == 1){
+        dataTable.destroy()
+      }
+      dataTable = new DataTable('#horarios',{
+          keys: true,
+          buttons: ['excel','PDF'],
+          layout:{
+            topStart: {
+              search: {placeholder: '..'}
+            },
+            topEnd:'buttons'
+          },
+          destroy:true,
+          searching: true,
+          paging: false,
+          language: {
+          url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/es-MX.json',
+          }, 
+  
+      });
+      tablaActiva = 1;
+      }
+  
+  
+  
+  </script>

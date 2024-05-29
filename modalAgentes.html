@@ -1,0 +1,97 @@
+<!-- Modal Buscador de Cambios -->
+<div class="modal fade" id="buscadorForm" tabindex="-1" aria-labelledby="buscadorFormLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered-xl">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="d-block">
+            <div class="col-auto">
+                <label for="scoreLista" class="visually-show">Score:</label>
+                <select class="form-select" aria-label="Default select example" id="scoreLista" data-bs-toggle="tooltip" data-bs-placement="top" title="Tu score">
+                  <option value="CATV">CATV</option>
+                  <option value="FACTURA">FACTURA</option>
+                  <option value="COMBO">COMBO</option>
+                  <option value="SCORE 1">SCORE 1</option>
+                  <option value="CNPIC">CNPIC</option>
+                  <option value="CNYOIZ">CNYOIZ</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <label for="horasBuscador" class="visually-show" >Hr a ingresar:</label>
+                <select class="form-select" aria-label="Default select example" id="horasBuscador" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario que se necesita ingresar">
+                   <option value="6:0">6:00</option>
+                   <option value="6:30">6:30</option>
+                   <option value="7:0">7:00</option>
+                   <option value="7:30">7:30</option>
+                   <option value="8:0">8:00</option>
+                   <option value="8:30">8:30</option>
+                   <option value="9:0">9:00</option>
+                   <option value="9:30">9:30</option>
+                   <option value="10:0">10:00</option>
+                   <option value="10:30">10:30</option>
+                   <option value="11:0">11:00</option>
+                   <option value="11:30">11:30</option>
+                   <option value="12:0">12:00</option>
+                   <option value="12:30">12:30</option>
+                   <option value="13:0">13:00</option>
+                   <option value="13:30">13:30</option>
+                   <option value="14:0">14:00</option>
+                   <option value="14:30">14:30</option>
+                   <option value="15:0">15:00</option>
+                   <option value="15:30">15:30</option>
+                   <option value="16:0">16:00</option>
+                   <option value="16:30">16:30</option>
+                   <option value="17:0">17:00</option>
+                   <option value="17:30">17:30</option>
+                   <option value="18:0">18:00</option>
+                   <option value="18:30">18:30</option>
+                   <option value="19:0">19:00</option>
+                   <option value="19:30">19:30</option>
+                   <option value="20:0">20:00</option>
+                   <option value="20:30">20:30</option>
+                   <option value="21:0">21:00</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <label for="fechaLista" class="visually-show">El dia:</label>
+                <select class="form-select" aria-label="Default select example" id="fechaLista" data-bs-toggle="tooltip" data-bs-placement="top" title="Dia del cambio">
+  
+  
+                </select>
+            </div>
+            <div class="col-auto">
+              <label for="fechaLista" class="visually-show"></label>
+              <button class="btn btn-primary mb-3 mt-3" id="btnBuscarCambios">Buscar</button>
+            </div>
+          </div>
+          <hr>
+          <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Supervisor</th>
+                  <th scope="col">Agente</th>
+                </tr>
+              </thead>
+              <tbody id="tbodyBuscadorHr">
+  
+              </tbody>
+        </table>
+        </div> 
+  
+  
+  
+  
+  
+  
+  
+  
+      </div>
+    </div>
+  </div>
+  
+  
+        <template id="templateBuscadorHr">
+                  <tr>
+                    <td class="celdaAgente"></td>
+                    <td class="celdaSup"></td>
+                </tr>
+        </template>

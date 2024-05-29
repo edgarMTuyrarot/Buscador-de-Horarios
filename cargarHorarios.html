@@ -1,0 +1,63 @@
+<script>
+  var modalAgenteNombre = document.getElementById("agenteModalLabel")
+var modalAgenteSupervisor = document.getElementById("modalSupervisor")
+var modalAgenteScore = document.getElementById("modalScore")
+var agenteCalendario = document.getElementById("agenteCalendario")
+var scoreCalendario = document.getElementById("scoreCalendario")
+var horariosAgenteCompleto = []
+var btnBuscar = document.getElementById("buscar")
+let calendar_days = document.querySelector('.calendar-days');
+var horariosAgente 
+btnBuscar.addEventListener("click",function(){
+modalCargando.show()
+calendar_days.innerHTML = ""
+ 
+ google.script.run.withSuccessHandler(data =>{
+  horariosAgenteCompleto = data
+  if(horariosAgenteCompleto!="NP"){
+
+    horariosAgenteCompleto.forEach(function (horario){
+
+      let day = document.createElement('div');
+      console.log(horario)
+      if(horario.includes("Franco")){
+        day.classList.add('franco');
+        day.innerHTML = `${horario}`
+        calendar_days.appendChild(day);  
+      }else{
+        if(horario.includes("Vacaciones")){
+          day.classList.add('vacaciones');
+          day.innerHTML = `${horario}`
+          calendar_days.appendChild(day);
+        }else{
+          if(horario.includes("Feriado")){
+            day.classList.add('vacaciones');
+            day.innerHTML = `${horario}`
+            calendar_days.appendChild(day);
+          }else{
+            if(horario.includes("NP")){
+                day.classList.add('vacaciones');
+                day.innerHTML = `${horario}`
+                calendar_days.appendChild(day);
+            }else{
+                day.innerHTML = `${horario}`
+                calendar_days.appendChild(day);       
+            }
+
+          }
+        }
+        
+        }
+
+      
+      })
+      modalCargando.hide()
+    }
+    else{
+      alert("Agente no programado")
+      modalCargando.hide()
+    }
+}).abrirMatriz(listaAgentesValor.value,document.getElementById("mes").value)  
+})
+
+</script>
